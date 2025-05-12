@@ -1,0 +1,102 @@
+@import url("setting.css");
+
+.title {
+    font-size: 4rem;
+    margin : 20px;
+    text-align : center;
+    color: #ebb41e;
+    font-weight: 600;
+      text-shadow: -2px 2px 4px rgba(0, 0, 0.1, 0.2);
+
+}
+
+.sub-title {
+    font-size: 2rem;
+    margin : 20px;
+}
+
+.day-choose-container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr); /* 4열 만들기 */
+      gap: 10px; /* 항목 사이 간격 */
+      max-width: 1000px;
+      margin: 20px auto;
+      margin-top: 100px;
+      font-size: 2rem;
+
+}
+
+.button {
+    font-size: 2rem;
+    border: 3px solid;
+    border-radius : 8px;
+    margin:10px;
+    background-color: #ffffff;
+    width: 500px;
+}
+
+
+.menu-button {
+    font-size: 3rem;
+    border: 3px solid;
+    border-radius : 8px;
+    margin: 30px;
+    padding : 30px;
+        background-color: #ffffff;
+
+}
+
+.main-container {
+    display: flex;
+    justify-content: center;     /* 좌우 중앙 */
+    align-items: center;         /* 위아래 중앙 */
+    margin: 100px;
+}
+
+.plain-text {
+    font-size:1.5rem;
+}
+
+.setting-div {
+    margin: 20px;
+}
+
+.setting-header {
+ position: relative;
+  display: flex;
+  justify-content: center;   /* 가운데 요소 중심 배치 */
+  align-items: center;       /* 세로 정렬 (높이 맞출 경우) */
+}
+
+#setting-back-button {
+ position: absolute;
+  left: 20px;
+  width:200px;
+}
+
+.container {
+    width: 1000px;
+    display: flex;
+        flex-direction: column;
+          justify-content: center;     /* 수평 가운데 정렬 */
+          align-items: center;         /* 수직 가운데 정렬 */
+          margin: 0 auto;
+
+}
+
+.day-choose-button {
+    border : 2px solid;
+    border-radius :  10px;
+    width: 200px;
+    padding : 10px;
+    text-align: center;
+    background-color : #fff;
+}
+
+.add-quiz {
+margin:100px;
+}
+
+#setting-quiz-add-button {
+    margin-top: 50px;
+}

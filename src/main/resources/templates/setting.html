@@ -1,0 +1,42 @@
+<html xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+<body>
+<div class="setting-header">
+    <a href="/" class="button" id="setting-back-button"> 돌아가기 </a>
+    <div class="title">퀴즈 추가하기</div>
+</div>
+<div class="container">
+<form class="container add-quiz" method="post" action="/setting">
+<div class="setting-div">
+<label for="dayChoose" class="plain-text">추가할 날짜</label>
+<select id="dayChoose" name="dayType">
+    <option value="DAY1">DAY 1</option>
+    <option value="DAY2">DAY 2</option>
+    <option value="DAY3">DAY 3</option>
+    <option value="DAY4">DAY 4</option>
+    <option value="DAY5">DAY 5</option>
+    <option value="DAY6">DAY 6</option>
+    <option value="DAY7">DAY 7</option>
+    <option value="DAY8">DAY 8</option>
+    <option value="DAY9">DAY 9</option>
+    <option value="DAY10">DAY 10</option>
+
+</select>
+</div>
+
+<div class="setting-div">
+    <label for="voca" class="plain-text">추가할 영단어:</label>
+    <input type="text" id="voca" name="voca">
+</div>
+<div class="setting-div">
+    <label for="meaning" class="plain-text">뜻:</label>
+    <input type="text" id="meaning" name="meaning" placeholder="의미가 여러 개면 /로 구분해주세요. 예)먹다/팔다">
+</div>
+<button type="submit" class="button" id="setting-quiz-add-button">추가하기</button>
+</form>
+</div>
+</body>
+</html>
