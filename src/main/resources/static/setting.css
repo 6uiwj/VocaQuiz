@@ -68,6 +68,8 @@ input {
   width: 300px;   /* 가로 너비 */
   height: 40px;   /* 세로 높이 */
   border-radius: 10px;
+  font-size: 1.3rem;
+  padding-left:5px;
 
 }
 
@@ -78,4 +80,7 @@ select {
   border-radius: 10px;
   font-size: 1.3rem;
 
+}
+
+label {
 }

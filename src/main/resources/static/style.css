@@ -35,6 +35,22 @@
     width: 500px;
 }
 
+ .button-second {
+        font-size: 1rem;
+        border: 1px solid;
+        border-radius : 5px;
+        margin:10px;
+        background-color: #ffffff;
+        width: 100px;
+        height:30px;
+        display: inline-block;
+        text-align: center;
+          line-height: 30px;       /* 높이와 동일하게 설정하여 텍스트를 수직 중앙 정렬 */
+
+
+ }
+
+
 
 .menu-button {
     font-size: 3rem;
@@ -55,6 +71,9 @@
 
 .plain-text {
     font-size:1.5rem;
+    text-align:center;
+    height: 34px;
+
 }
 
 .setting-div {
@@ -75,7 +94,7 @@
 }
 
 .container {
-    width: 1000px;
+    width: 1200px;
     display: flex;
         flex-direction: column;
           justify-content: center;     /* 수평 가운데 정렬 */
@@ -98,5 +117,38 @@ margin:100px;
 }
 
 #setting-quiz-add-button {
-    margin-top: 50px;
+height: 44px;
+width:200px;
+font-size: 1.3rem;
 }
+
+
+.add-word-container {
+    display:flex;
+    align-items: center;
+}
+
+.input-box {
+    width:200px;
+}
+
+#list {
+border: 1px solid;
+border-radius:10px;
+}
+
+/* 테이블 */
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  th, td {
+    padding: 10px;
+    text-align: center;
+  }
+
+  th {
+    background-color: #ebb41e;
+  }
