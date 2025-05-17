@@ -2,12 +2,15 @@ package com.example.EnglishQuiz.quiz;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @Service
 @RequiredArgsConstructor
-public class quizService {
+public class QuizService {
     private final QuizRepository quizRepository;
 
 
+    //영어로 문제, 한글로 맞히기
+    public void koreanQuiz () {
+
+    }
 }

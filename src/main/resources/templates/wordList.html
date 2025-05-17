@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" type="text/css" href="/style.css">
+    <script src="/setting.js"></script>
 
     <meta charset="UTF-8">
     <title>Title</title>
@@ -11,6 +12,8 @@
     <a href="/" class="button" id="setting-back-button"> 돌아가기 </a>
     <div class="title">영단어 관리</div>
 </div>
+<form class="container add-quiz" method="post" action="/setting/wordList">
+
 <div class="container">
     <div class="setting-div">
         <label for="dayChoose" class="plain-text">날짜 선택</label>
@@ -25,9 +28,9 @@
             <option value="DAY8">DAY 8</option>
             <option value="DAY9">DAY 9</option>
             <option value="DAY10">DAY 10</option>
-
         </select>
     </div>
+</div>
         <div class="sub-title">
             **단어 목록**
         </div>
@@ -35,6 +38,9 @@
             <table>
                 <thead>
                     <tr>
+                        <th>
+                            No
+                        </th>
                         <th>
                             영단어
                         </th>
@@ -52,7 +58,6 @@
             </table>
         </div>
 
-    <form class="container add-quiz" method="post" action="/setting">
         <div class="add-word-container">
             <div class="plain-text">단어 추가하기</div>
         <div class="setting-div">
@@ -67,75 +72,6 @@
 
         </div>
     </form>
-</div>
 </body>
 </html>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const daySelect = document.getElementById("dayChoose");
-        const tableBody = document.querySelector("#list tbody");
-
-        daySelect.addEventListener("change", function () {
-            const selectedDay = this.value;
-
-            fetch(`/api/words?day=${selectedDay}`)
-                .then(response => response.json())
-                .then(data => {
-                    tableBody.innerHTML = ""; // 기존 테이블 비우기
-
-                    if (data.length === 0) {
-                        const row = document.createElement("tr");
-                        const td = document.createElement("td");
-                        td.colSpan = 3;
-                        td.textContent = "단어가 존재하지 않습니다.";
-                        row.appendChild(td);
-                        tableBody.appendChild(row);
-                    } else {
-                        data.forEach(voca => {
-                            const row = document.createElement("tr");
-
-                            const wordTd = document.createElement("td");
-                            wordTd.textContent = voca.word;
-                            row.appendChild(wordTd);
-
-                            const meaningTd = document.createElement("td");
-                            meaningTd.textContent = voca.meaning;
-                            row.appendChild(meaningTd);
-
-                            const controlTd = document.createElement("td");
-
-                            //수정하기 링크
-                            const editLink = document.createElement("a");
-                            editLink.href = `/setting/edit/${voca.id}`; // 경로 수정해야함
-                            editLink.textContent = "수정하기";
-                            editLink.classList.add("button-second");
-
-
-
-                            // 삭제하기 링크
-                            const deleteLink = document.createElement("a");
-                            deleteLink.href = `/setting/delete/${voca.id}`; //경로 수정해야함
-                            deleteLink.textContent = "삭제하기";
-                            deleteLink.classList.add("button-second");
-
-
-                            //둘다 controlId에 추가
-                            controlTd.appendChild(editLink);
-                            controlTd.appendChild(deleteLink);
-
-                            row.appendChild(controlTd);
-
-                            tableBody.appendChild(row);
-                        });
-                    }
-                })
-                .catch(error => {
-                    console.error("에러 발생:", error);
-                });
-        });
-
-        // 페이지 처음 로딩 시에도 동작하도록 트리거
-        daySelect.dispatchEvent(new Event("change"));
-    });
-</script>

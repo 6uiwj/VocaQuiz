@@ -2,13 +2,25 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="/style.css" >
+    <script src="/quiz.js"></script>
 </head>
 <body>
 <h1 class="title">English Quiz</h1>
 <div class="main-container">
-<a href="/quiz" class="menu-button">퀴즈 풀기</a>
+<a href="/quiz" class="menu-button" id="selectQuizType">퀴즈 풀기</a>
 <a href="/quiz" class="menu-button">시험지 생성하기</a>
 <a href="/setting" class="menu-button">설정</a>
 </div>
+
+<!-- 팝업 창 (기본은 숨겨져 있음) -->
+<div id="quiz-popup" class="popup" style="display: none;">
+    <div class="popup-content">
+        <h2>퀴즈 유형 선택</h2>
+        <button onclick="selectQuizType('korean')">한글 뜻 맞히기</button>
+        <button onclick="selectQuizType('english')">영단어 맞히기</button>
+        <button id="close-popup" onclick="closePopup()">닫기</button>
+    </div>
+</div>
+
 </body>
 </html>

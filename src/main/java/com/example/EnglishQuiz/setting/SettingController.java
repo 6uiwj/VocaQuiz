@@ -25,12 +25,19 @@ public class SettingController {
     }
 
 
-    @PostMapping
+    /**
+     * 단어 추가하기
+     * @param dayType
+     * @param word
+     * @param meaning
+     * @return
+     */
+    @PostMapping("/wordList")
     public String saveNewVocabulary (@RequestParam("dayType") DayType dayType,
                                      @RequestParam(value="voca") String word,
                                      @RequestParam(value="meaning") String meaning) {
         settingService.saveNewWord(dayType,word,meaning);
-        return "redirect:/setting";
+        return "redirect:/setting/wordList?day=" +dayType.name();
     }
 
     @GetMapping("/wordList")
@@ -39,10 +46,15 @@ public class SettingController {
     }
 
 
-    public void getWordList(@RequestParam("dataType") DayType dayType, Model model) {
-        //TODO : 서비스 구현
-        List<WordDto> wordList =  settingService.getWordListOfDay(dayType);
-        model.addAttribute("wordListOfDay",wordList);
-
-    }
+//    /**
+//     *
+//     * @param dayType
+//     * @param model
+//     */
+//    public void getWordList(@RequestParam("dataType") DayType dayType, Model model) {
+//        //TODO : 서비스 구현
+//        List<WordDto> wordList =  settingService.getWordListOfDay(dayType);
+//        model.addAttribute("wordListOfDay",wordList);
+//
+//    }
 }
