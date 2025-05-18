@@ -25,4 +25,11 @@ public class Vocabulary {
     @Enumerated(EnumType.STRING)
     private DayType dayType;
 
+    @Override
+    public String toString() {
+        return "Vocabulary{" +
+                "word='" + word + '\'' +
+                ", meaning='" + meaning + '\'' +
+                '}';
+    }
 }
