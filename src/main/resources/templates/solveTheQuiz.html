@@ -5,12 +5,28 @@
     <title>Title</title>
 </head>
 <body>
-<div>질문</div>
-<div>
-    <form>
-        <label for="answer-box">답</label>
-        <input type="text" id="answer-box">
-    </form>
-</div>
+<input type="hidden" id="quizType" th:value="${quizType}">
+<input type="hidden" id="quizDay" th:value="${quizDay}">
+<h2 id="question">문제 로딩 중...</h2>
+
+<input type="text" id="answerInput" placeholder="정답 입력" />
+<button onclick="checkAnswer()">제출</button>
+<button id="nextButton" onclick="goToNext()" style="display: none;">다음 문제</button>
+<p id="result"></p>
+
+
+<!--<div>-->
+<!--    <ul th:each="wordList : ${quizAnswerToKr}">-->
+<!--        <li th:text="${wordList.key}">영어 단어</li>-->
+<!--        &lt;!&ndash;<li th:text="${wordList.value}">뜻</li>&ndash;&gt;-->
+<!--    </ul>-->
+<!--</div>-->
+<!--<div>-->
+<!--    <form>-->
+<!--        <label for="answer-box">답</label>-->
+<!--        <input type="text" id="answer-box">-->
+<!--    </form>-->
+<!--</div>-->
+<script src="/solveTheQuiz.js"></script>
 </body>
 </html>
