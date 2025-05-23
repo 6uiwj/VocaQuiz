@@ -27,7 +27,7 @@ public class QuizController {
     }
 
     /**
-     * 퀴즈 출력하기 (엉어/한글)
+     * 퀴즈 페이지 렌더링
      * @param type
      * @param day
      * @param model
@@ -46,6 +46,12 @@ public class QuizController {
         return "/solveTheQuiz";
     }
 
+    /**
+     * 퀴즈 출력하기
+     * @param type
+     * @param day
+     * @return
+     */
     @GetMapping("/quiz-data")
     @ResponseBody
     public Map<String, String> getQuizDate(@RequestParam("type") String type,

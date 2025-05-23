@@ -23,7 +23,7 @@ public class QuizService {
             Collections.shuffle(dayWordList);
 
             //맵에 넣기
-            Map<String, String> vocaQuizAnswerKr = new HashMap<>();
+            Map<String, String> vocaQuizAnswerKr = new LinkedHashMap<>();
             for (int i = 0; i < dayWordList.size(); i++) {
                 vocaQuizAnswerKr.put(dayWordList.get(i).getWord(), dayWordList.get(i).getMeaning());
             }
