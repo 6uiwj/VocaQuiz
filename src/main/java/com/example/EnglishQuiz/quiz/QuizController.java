@@ -62,11 +62,10 @@ public class QuizController {
             Map<String, String> quiz = quizService.koreanQuiz(type,dayType);
             return quiz;
         } else if(type.equals("english")) {
-            return null;
+            Map<String, String> quiz = quizService.englishQuiz(type,dayType);
+            return quiz;
         }
         return null;
     }
-
-
 
 }

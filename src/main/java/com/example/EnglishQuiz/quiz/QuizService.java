@@ -28,8 +28,21 @@ public class QuizService {
                 vocaQuizAnswerKr.put(dayWordList.get(i).getWord(), dayWordList.get(i).getMeaning());
             }
         return vocaQuizAnswerKr;
+    }
 
+    public Map<String, String> englishQuiz (String quizType, DayType dayType) {
+        Optional<List<Vocabulary>> dayWordListTemp = quizRepository.findByDayType(dayType);
+        if (!dayWordListTemp.isPresent()) {
+            return null;
+        }
+            List<Vocabulary> dayWordList = dayWordListTemp.get();
 
+            Collections.shuffle(dayWordList);
 
+            Map<String, String> vocaQuizAnswerEng = new LinkedHashMap<>();
+        for (int i = 0; i < dayWordList.size(); i++) {
+            vocaQuizAnswerEng.put(dayWordList.get(i).getMeaning(), dayWordList.get(i).getWord());
+        }
+        return vocaQuizAnswerEng;
     }
 }
