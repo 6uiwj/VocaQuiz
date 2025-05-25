@@ -5,6 +5,8 @@
     <title>Title</title>
 </head>
 <body>
+<nav th:replace="~{header :: navbarFragment}"></nav>
+
 <div id="progress"></div>
 <input type="hidden" id="quizType" th:value="${quizType}">
 <input type="hidden" id="quizDay" th:value="${quizDay}">
@@ -15,7 +17,29 @@
     <button id="nextButton" type="button" onclick="goToNext()" style="display: none;">다음 문제</button>
     <p id="result"></p>
 </form>
+<span id="score"></span>
+<div id="quizEnd">
+    <form id="incorrectWordForm" style="display: none;" method="post">
+        <h2>틀린 문제 목록</h2>
+        <div class="sub-title">
+            **단어 목록**
+        </div>
+        <div class="container" id="incorrectWordList">
+            <table>
+                <thead>
+                <tr>
+                    <th>No</th>
+                    <th>영단어</th>
+                    <th>의미</th>
+                </tr>
+                </thead>
+                <tbody>
 
+                </tbody>
+            </table>
+        </div>
+    </form>
+</div>
 <a href="/" id="home" style = "display:none;">메인으로 돌아가기</a>
 
 <script src="/solveTheQuiz.js"></script>

@@ -1,9 +1,11 @@
 let quizData = [];
 let currentIndex = 0;
 let showNextEnabled = false;
+let incorrectAnswerList = [];
 
 const type = document.getElementById("quizType").value; //영어맞히기?한글맞히기?
 const day = document.getElementById("quizDay").value; //며칠 데이터?
+const quizEnd = document.getElementById("quizEnd");
 
     // 1. 서버에서 JSON 데이터 받아오기
     fetch(`/quiz/quiz-data?type=${type}&day=${day}`) //서버에 데이터 요청
@@ -43,6 +45,53 @@ const day = document.getElementById("quizDay").value; //며칠 데이터?
             document.getElementById("nextButton").style.display = "none";
             document.getElementById("home").style.display="inline-block";
 
+            document.getElementById("result").innerText = "";
+
+            const rightAnswer = quizData.length - incorrectAnswerList.length;
+            document.getElementById("score").innerText = `맞힌 문제 수 : ${rightAnswer} / ${quizData.length}`;
+
+            const tableBody = document.querySelector("#incorrectWordList tbody");
+            if(incorrectAnswerList.length ===0) {
+                const endComment = document.createElement("span");
+                endComment.innerText = "축하합니다. 다 맞히셨네요!";
+                quizEnd.appendChild(endComment);
+            } else {
+                document.getElementById("incorrectWordForm").style.display = "block"; // 틀린 문제 목록 폼 보이기
+
+                //틀린 단어 목록 DB에서 가져와 보여주기
+                    incorrectAnswerList.forEach((wrongKey, idx) => {
+                        const row = document.createElement("tr");
+
+                        const noCell = document.createElement("td");
+                        noCell.innerText = idx + 1;
+
+                        const wordCell = document.createElement("td");
+                        wordCell.innerText = wrongKey;
+
+                        const meaningCell = document.createElement("td");
+
+                       // quizData에서 [key, value] 찾기
+                        const found = quizData.find(([key]) => key === wrongKey);
+                        const key = found ? found[0] : "알 수 없음";
+                        const value = found ? found[1] : "알 수 없음";
+
+                        if (type === "english") {
+                            // 문제: 한글 의미 (key), 정답: 영어 단어 (value)
+                            wordCell.innerText = value;
+                            meaningCell.innerText = key;
+                        } else {
+                            // 문제: 영어 단어 (key), 정답: 한글 의미 (value)
+                            wordCell.innerText = key;
+                            meaningCell.innerText = value;
+                        }
+
+                        row.appendChild(noCell);
+                        row.appendChild(wordCell);
+                        row.appendChild(meaningCell);
+                        tableBody.appendChild(row);
+                    });
+            }
+
               }
         }
 
@@ -62,6 +111,7 @@ const day = document.getElementById("quizDay").value; //며칠 데이터?
             document.getElementById("result").innerText = "정답입니다!";
         } else {
             document.getElementById("result").innerText = `오답입니다. 정답: ${correctAnswer}`;
+            incorrectAnswerList.push(quizData[currentIndex][0]);
             }
         document.getElementById("answerInput").style.display = "none";
         document.getElementById("submitButton").style.display = "none";
@@ -77,3 +127,11 @@ const day = document.getElementById("quizDay").value; //며칠 데이터?
             showNextQuestion(); //다음 문제로 이동
         }
     }
+
+    //다음 문제 이동 버튼 enter키로도 눌리도록 설정
+    document.addEventListener("keydown", function (event) {
+        if (event.key === "Enter" && showNextEnabled) {
+            event.preventDefault();
+            goToNext();
+        }
+    });
