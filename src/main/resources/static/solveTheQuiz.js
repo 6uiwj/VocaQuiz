@@ -8,7 +8,8 @@ const day = document.getElementById("quizDay").value; //며칠 데이터?
 const quizEnd = document.getElementById("quizEnd");
 
     // 1. 서버에서 JSON 데이터 받아오기
-    fetch(`/quiz/quiz-data?type=${type}&day=${day}`) //서버에 데이터 요청
+    const count = document.getElementById("quizCount").value;
+    fetch(`/quiz/quiz-data?type=${type}&day=${day}&n=${count}`) //서버에 데이터 요청
         .then(res => res.json())
         .then(data => {
             // Map이 JSON으로 오면 Object로 변환됨
@@ -18,6 +19,7 @@ const quizEnd = document.getElementById("quizEnd");
 
     // 2. 문제 보여주기
     function showNextQuestion() {
+
         if (currentIndex < quizData.length) { //Map 요소가 남아있으면 다음문제 출력
             const span = document.createElement("span");
             span.innerText = `${quizData[currentIndex]}/${quizData.length}`;
@@ -38,7 +40,7 @@ const quizEnd = document.getElementById("quizEnd");
             document.getElementById("submitButton").style.display = "inline-block";
 
 
-        } else { //map의 모든 요소를 다돌았을 경우
+        } else { //map의 모든 요소를 다 돌았을 경우
             document.getElementById("question").innerText = "퀴즈 끝!"; //퀴즈 끝 출력
             document.getElementById("answerInput").style.display = "none";
             document.getElementById("submitButton").style.display = "none";
@@ -101,10 +103,12 @@ const quizEnd = document.getElementById("quizEnd");
     function checkAnswer(e) {
         e.preventDefault();
 
-        const userAnswer = document.getElementById("answerInput").value.trim(); //정답 input에 입력된 값을 가져옴
+        let userAnswer = document.getElementById("answerInput").value.trim(); //정답 input에 입력된 값을 가져옴
+            userAnswer = userAnswer.replace(/[^\w\s가-힣]/g, ""); // 특수문자 제거
+
         const correctAnswer = quizData[currentIndex][1]; //정답 : map의 value 값
-    // 여러 정답 중 하나라도 맞으면 정답 처리
-    const acceptableAnswers = correctAnswer.split("/").map(a => a.trim()); //acceptableAnswers는 sting타입 배열임 , 정답에서 "/"기호 기준으로 앞뒤 모두 정답으로 인정
+        // 여러 정답 중 하나라도 맞으면 정답 처리
+        const acceptableAnswers = correctAnswer.split("/").map(a => a.trim()); //acceptableAnswers는 sting타입 배열임 , 정답에서 "/"기호 기준으로 앞뒤 모두 정답으로 인정
 
         if (acceptableAnswers.includes(userAnswer)) {
 
@@ -135,3 +139,4 @@ const quizEnd = document.getElementById("quizEnd");
             goToNext();
         }
     });
+

@@ -37,17 +37,12 @@ public class QuizController {
     public String solveQuizPage(@PathVariable("type") String type, @PathVariable("day") String day, Model model) {
         model.addAttribute("quizType",type);
         model.addAttribute("quizDay", day);
-//        if(type.equals("korean")) {
-//            Map<String, String> quizAnswerToKr = quizService.koreanQuiz(type, dayType);
-//            model.addAttribute("quizAnswerToKr", quizAnswerToKr)
-//        } else if(type.equals("english")) {
-//            //TODO
-//        }
+
         return "/solveTheQuiz";
     }
 
     /**
-     * 퀴즈 출력하기
+     * 퀴즈 출력하기 - 데이터 전달용
      * @param type
      * @param day
      * @return
@@ -55,17 +50,35 @@ public class QuizController {
     @GetMapping("/quiz-data")
     @ResponseBody
     public Map<String, String> getQuizDate(@RequestParam("type") String type,
-                                           @RequestParam("day") String day) {
+                                           @RequestParam("day") String day,
+                                           @RequestParam(value = "n", required = false) Integer n) {
         DayType dayType = DayType.valueOf(day.toUpperCase());
+        Map<String, String> quiz;
 
         if(type.equals("korean")) {
-            Map<String, String> quiz = quizService.koreanQuiz(type,dayType);
-            return quiz;
+            quiz = quizService.koreanQuiz(type,dayType);
         } else if(type.equals("english")) {
-            Map<String, String> quiz = quizService.englishQuiz(type,dayType);
+            quiz = quizService.englishQuiz(type,dayType);
+        } else {
+            return null;
+        }
+
+        // 문제 수 제한 처리 (n이 null 이거나 0 이하이면 전체 문제 반환)
+        if(n == null || n <= 0 || n >= quiz.size()) {
             return quiz;
         }
-        return null;
+
+        // 문제 수 제한에 맞게 quiz에서 일부 문제만 잘라서 반환
+        // LinkedHashMap이 문제 순서 보장하므로 LinkedHashMap을 쓰는 걸 가정
+        Map<String, String> limitedQuiz = new LinkedHashMap<>();
+        int count = 0;
+        for (Map.Entry<String, String> entry : quiz.entrySet()) {
+            if (count >= n) break;
+            limitedQuiz.put(entry.getKey(), entry.getValue());
+            count++;
+        }
+        return limitedQuiz;
+
     }
 
 }

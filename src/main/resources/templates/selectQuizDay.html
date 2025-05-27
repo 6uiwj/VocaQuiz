@@ -29,5 +29,20 @@
 <a class="day-choose-button" href="#" data-day="day20">DAY 20</a>
 </div>
 <a href="/" class="button">돌아가기</a>
+
+<div id="nbr-of-quiz-popup" class="popup" style="display:none;">
+    <div class="popup-content">
+        <h2>문제 수 선택</h2>
+        <span id="nbr-of-quiz-display">총 문제 수: </span>
+        <span> 선택한 문제 수보다 총 문제 수가 적을 경우, 모든 문제를 가져옵니다. </span>
+        <button onclick ="selectQuizNbr('10')">10문제</button>
+        <button onclick = "selectQuizNbr('20')">20문제</button>
+        <button onclick = "selectQuizNbr('all')">모든 문제</button>
+
+    </div>
+
+</div>
 </body>
+
+
 </html>
