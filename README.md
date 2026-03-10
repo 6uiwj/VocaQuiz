@@ -93,7 +93,7 @@ cd VocaQuiz
  <img width="982" height="858" alt="image" src="https://github.com/user-attachments/assets/394b16f8-94fa-4258-a27e-826c70b23df5" />
 
 
-- 테스트할 영단어 저장 - 날짜별 저장 가능
+- '설정' - '등록된 단어 목록'에서 테스트할 영단어 저장 - 날짜별 저장 가능
   - '/' 문자를 이용하여 의미를 여러개 저장할 수 있습니다.
 <img width="1468" height="794" alt="image" src="https://github.com/user-attachments/assets/512931b3-ea13-4ffe-8c2f-1edd36ee53b8" />
 
