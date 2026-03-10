@@ -113,7 +113,7 @@ cd VocaQuiz
   - 퀴즈를 시작하면 문제를 풀 수 있습니다.
   - 문제를 틀릴 경우 하단에 정답을 보여줍니다.
 
-<img width="2728" height="1812" alt="제목 없는 다이어그램-페이지-3 (2)" src="https://github.com/user-attachments/assets/d8fda904-9a13-4b23-a752-2b58eced1826" />
+<img width="2728" height="1804" alt="제목 없는 다이어그램-페이지-3 (3)" src="https://github.com/user-attachments/assets/7d085480-7ba7-46a4-8c33-414d3946beb0" />
 
 
 - 정답 확인 및 점수 집계
