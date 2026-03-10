@@ -141,6 +141,7 @@ body {
     border-radius: 32px;
     padding: 50px 60px;
     width: 340px;
+    height: 280px;
     display: flex;
     flex-direction: column;
     align-items: center;
