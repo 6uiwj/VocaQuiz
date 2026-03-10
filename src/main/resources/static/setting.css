@@ -5,82 +5,155 @@
    License: none (public domain)
 */
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-	display: block;
+
+/* 설정 페이지 컨테이너 */
+.container {
+    width: 1200px;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
+/* 설정 메뉴 버튼 */
+.button {
+    display: block;
+    width: 260px;
+    padding: 16px;
 
-body {
-	line-height: 1;
-    margin: 0;
-    padding: 20px;
-    background-color: #faefbb;
-}
+    text-align: center;
+    text-decoration: none;
 
-ol, ul {
-	list-style: none;
-}
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 10px auto;   /* auto로 가운데 정렬 */
+
+    color: black;
+    background: #d9e4f5;
+    display: block;      /* block이어야 margin auto 적용됨 */
+
+    border-radius: 10px;
+
+    transition: all 0.25s ease;
 }
 
-a:visited {
-  color: inherit; /* 기본 링크 색으로 덮어쓰기 */
+/* hover 효과 */
+.button:hover {
+    background: #d9e4f5;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
-a {
-     color: inherit;          /* 부모 요소의 글자색을 따르게 설정 */
-      text-decoration: none;   /* 밑줄 제거 */
-}
-
-input {
-  width: 300px;   /* 가로 너비 */
-  height: 40px;   /* 세로 높이 */
-  border-radius: 10px;
-  font-size: 1.3rem;
-  padding-left:5px;
+.add-quiz {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+        margin: 0 auto;  /* 100px 제거 */
 
 }
 
+/* 설정 헤더 */
+.setting-header {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    margin-top: 40px;
+}
 
+/* 돌아가기 버튼 */
+#setting-back-button {
+    justify-self: start;
+
+}
+
+.title {
+    justify-self: center;
+}
+
+/* 서브 타이틀 */
+.sub-title {
+    font-size: 2rem;
+    margin: 20px;
+    text-align: center;
+}
+
+
+
+/* 일반 텍스트 */
+.plain-text {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* select 박스 */
 select {
-  width: 300px;   /* 가로 너비 */
-  height: 40px;   /* 세로 높이 */
-  border-radius: 10px;
-  font-size: 1.3rem;
-
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 15px;
 }
 
-label {
+/* 입력 박스 */
+.input-box {
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    width: 200px;
+    font-size: 15px;
 }
+
+/* 테이블 컨테이너 */
+#list {
+    border: none;  /* 테두리 제거 */
+    border-radius:10px;
+    padding:10px;
+    width: 800px;}
+
+/* 테이블 */
+table {
+    border-collapse: collapse;
+    width: 600px;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* 테이블 헤더 */
+thead {
+    background: #4a6cf7;
+    color: white;
+}
+
+/* 셀 */
+th, td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+
+/* 테이블 hover */
+tbody tr:hover {
+    background: #f3f6ff;
+}
+
+/* 단어 추가 영역 */
+.add-word-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* 추가 버튼 */
+#setting-quiz-add-button {
+    width: 100px;   /* 150px -> 100px */
+    height: 44px;
+        border: none;  /* 테두리 제거 */
+
+    font-size: 15px;
+        line-height: 10px;  /* height랑 동일하게 */
+
+    }

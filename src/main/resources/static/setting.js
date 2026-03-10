@@ -57,7 +57,7 @@
 
                             // 삭제하기 링크
                             const deleteLink = document.createElement("a");
-                            deleteLink.href = `/setting/delete/${voca.id}`; //경로 수정해야함
+                                deleteLink.href = `/setting/delete/${voca.id}?day=${daySelect.value}`;
                             deleteLink.textContent = "삭제하기";
                             deleteLink.classList.add("button-second");
 
@@ -79,6 +79,18 @@
 
         // 페이지 처음 로딩 시에도 동작하도록 트리거
         daySelect.dispatchEvent(new Event("change"));
+
+        document.getElementById("setting-quiz-add-button").addEventListener("click", function(e) {
+            const voca = document.getElementById("voca").value.trim();
+            const meaning = document.getElementById("meaning").value.trim();
+
+            if (voca === "" || meaning === "") {
+                e.preventDefault();
+                alert("영단어와 뜻을 모두 입력해주세요.");
+            }
+        });
+
+
         //Day별 단어 가져오기 End
 
 //        //Day별 단어 저장하기 Start

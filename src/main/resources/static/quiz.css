@@ -1,28 +1,314 @@
+/* 전체 기본 설정 */
+
+
+/* 제목 */
+.title {
+    text-align: center;
+    margin-top: 60px;
+    font-size: 60px;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+/* 메인 컨테이너 */
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 60px;
+    gap: 20px;
+}
+
+/* 메뉴 버튼 */
+.menu-button {
+    display: block;
+    width: 260px;
+    padding: 18px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    color: black;
+    background:#d9e4f5;
+    border-radius: 10px;
+    transition: all 0.25s ease;
+}
+
+/* 버튼 hover 효과 */
+.menu-button:hover {
+    background: #d9e4f5;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+
+/* 팝업 전체 배경 */
 .popup {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,0.5); /* 반투명 배경 */
+    background: rgba(0,0,0,0.4);
     display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 팝업 박스 */
+.popup-content {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    text-align: center;
+    width: 300px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+/* 팝업 제목 */
+.popup-content h2 {
+    margin-bottom: 25px;
+    color: #333;
+}
+
+/* 팝업 버튼 */
+.popup-content button {
+    width: 200px;
+    padding: 12px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 8px;
+    color: #292929;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+#back {
+    background:#2c3e58;
+    color: white;
+}
+
+/* 팝업 버튼 hover */
+.popup-content button:hover {
+    background: #d9e4f5;
+    transform: translateY(-2px);
+}
+#back button:hover {
+    transform: translateY(-2px);
+
+}
+/* 닫기 버튼 */
+#close-popup {
+    background: #999;
+    color: white;
+}
+
+#close-popup:hover {
+    background: #777;
+}
+
+
+/* ---------------------------------------- */
+/*             퀴즈 페이지 전용               */
+/* ---------------------------------------- */
+
+/* 퀴즈 카드 - 화면 중앙에 띄우는 메인 박스 */
+#quizForm,
+#quizEnd {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* 퀴즈 전체를 감싸는 카드 */
+body {
+    margin: 0;
+    font-family: "Segoe UI", "Noto Sans KR", sans-serif;
+    background: linear-gradient(135deg, #eef2f7, #d9e4f5);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+}
+.quiz-body {
     align-items: center;
     justify-content: center;
-    z-index: 1000;
+}
+/* 퀴즈 카드 */
+.quiz-card {
+    background: white;
+    border-radius: 32px;
+    padding: 50px 60px;
+    width: 340px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+    box-shadow: 0 8px 32px rgba(60, 80, 120, 0.10);
 }
 
-.popup-content {
-    background-color: white;
-    padding: 30px;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0 0 10px #444;
+/* 홈 버튼 (집 아이콘) */
+#home-icon {
+    position: absolute;
+    top: 16px;
+    left: 18px;
+    font-size: 20px;
+    text-decoration: none;
+    cursor: pointer;
+    line-height: 1;
 }
 
-.popup-content button {
-    display: block;
-    margin: 10px auto;
-    padding: 10px 20px;
+/* 진행률 텍스트 (3/10) */
+#progress {
     font-size: 16px;
+    color: #555;
+    font-weight: 500;
+    margin-bottom: -8px;
 }
 
+/* 문제 텍스트 */
+#question {
+    font-size: 30px;
+    font-weight: 700;
+    color: #1a2340;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* 정답 입력 박스 */
+#answerInput {
+    width: 240px;
+    padding: 10px 14px;
+    border: 1.5px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    background: #fff;
+    transition: border 0.2s;
+    box-sizing: border-box;
+}
+
+#answerInput:focus {
+    border-color: #d9e4f5;
+}
+
+/* 입력칸 + 버튼 간격 */
+#quizForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+}
+
+/* 제출 버튼 */
+#submitButton {
+margin-top:20px;
+    width: 120px;
+    padding: 10px 0;
+    background: #2c3e58;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+
+}
+
+#submitButton:hover {
+    transform: translateY(-2px);
+}
+
+/* 다음 문제 버튼 */
+#nextButton {
+    width: 120px;
+    padding: 10px 0;
+    background: #2c3e58;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+}
+
+#nextButton:hover {
+    background: #d9e4f5;
+    transform: translateY(-2px);
+}
+
+/* 정답/오답 결과 텍스트 */
+#result {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0;
+    min-height: 22px;
+}
+
+#result.correct {
+    color: #27ae60;
+}
+
+#result.wrong {
+    color: #e74c3c;
+}
+
+.clear_comment {
+margin-top:20px;
+font-size:18px;
+}
+
+/* 점수 */
+#score {
+    font-size: 22px;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+/* 퀴즈 종료 - 틀린 문제 목록 */
+#incorrectWordForm {
+    margin-top: 30px;
+    width: 100%;
+    max-width: 600px;
+}
+
+#incorrectWordForm h2 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 16px;
+}
+
+/* 메인으로 돌아가기 링크 */
+#home {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 24px;
+    background: #2c3e58;
+    color: #fff;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+
+#home:hover {
+    background: #d9e4f5;
+}
+
+
+#incorrectWordList {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}

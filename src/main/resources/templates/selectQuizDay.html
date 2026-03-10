@@ -4,7 +4,7 @@
     <link rel="stylesheet" type="text/css" href="/style.css">
     <script src = "/selectQuizDay.js"></script>
 </head>
-<body>
+<body class="quiz-body">
 <div class="title"> 날짜 선택 </div>
 <div class="day-choose-container">
 <a class="day-choose-button" href="#" data-day="day1">DAY 1</a>
@@ -33,11 +33,13 @@
 <div id="nbr-of-quiz-popup" class="popup" style="display:none;">
     <div class="popup-content">
         <h2>문제 수 선택</h2>
-        <span id="nbr-of-quiz-display">총 문제 수: </span>
-        <span> 선택한 문제 수보다 총 문제 수가 적을 경우, 모든 문제를 가져옵니다. </span>
+        <p id="nbr-of-quiz-display">총 문제 수: </p>
+        <p>선택한 문제 수보다 총 문제 수가 적을 경우, 모든 문제를 가져옵니다.</p>
         <button class="quiz-count-btn" data-count="10">10문제</button>
         <button class="quiz-count-btn" data-count="20">20문제</button>
         <button class="quiz-count-btn" data-count="all">모든 문제</button>
+        <button class="quiz-count-btn" data-count="-1" id="back">돌아가기</button>
+
     </div>
 
 </div>

@@ -43,4 +43,9 @@ public class SettingService {
                 .collect(Collectors.toList());
     }
 
+
+    public void deleteWord(Integer vId) {
+        quizRepository.deleteById(vId);
+
+    }
 }

@@ -9,5 +9,7 @@ import java.util.Optional;
 @Repository
 public interface QuizRepository extends JpaRepository<Vocabulary, Integer> {
 
+    void deleteById(Integer vId);
+
     Optional<List<Vocabulary>> findByDayType(DayType dayType);
 }

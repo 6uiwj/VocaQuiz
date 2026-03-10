@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="/style.css">
+
 </head>
-<body>
+<body class="quiz-body">
 <nav th:replace="~{header :: navbarFragment}"></nav>
+<div class="quiz-card">
 
 <div id="progress"></div>
 <input type="hidden" id="quizType" th:value="${quizType}">
@@ -20,12 +23,11 @@
     <p id="result"></p>
 </form>
 <span id="score"></span>
+</div>
 <div id="quizEnd">
     <form id="incorrectWordForm" style="display: none;" method="post">
         <h2>틀린 문제 목록</h2>
-        <div class="sub-title">
-            **단어 목록**
-        </div>
+
         <div class="container" id="incorrectWordList">
             <table>
                 <thead>

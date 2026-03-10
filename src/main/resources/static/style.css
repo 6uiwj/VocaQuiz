@@ -1,14 +1,22 @@
 @import url("setting.css");
 @import url("quiz.css");
 
-.title {
-    font-size: 4rem;
-    margin : 20px;
-    text-align : center;
-    color: #ebb41e;
-    font-weight: 600;
-      text-shadow: -2px 2px 4px rgba(0, 0, 0.1, 0.2);
+body {
+    margin: 0;
+    font-family: "Segoe UI", "Noto Sans KR", sans-serif;
+    background: linear-gradient(135deg, #eef2f7, #d9e4f5);
+    min-height: 100vh;
+    /* display: flex; 이하 3줄 전부 삭제 */
+}
 
+.title {
+    font-size: clamp(4vw, 5rem);
+    margin: 40px 20px 20px 20px;  /* 중복 margin 한 줄로 */
+    text-align: center;
+    color: #292929;
+    font-weight: 600;
+    text-shadow: -2px 2px 4px rgba(0, 0, 0.1, 0.2);
+    word-break: keep-all;
 }
 
 .sub-title {
@@ -19,9 +27,9 @@
 .day-choose-container {
       display: grid;
       grid-template-columns: repeat(4, 1fr); /* 4열 만들기 */
-      gap: 10px; /* 항목 사이 간격 */
+      gap: 20px; /* 항목 사이 간격 */
       max-width: 1000px;
-      margin: 20px auto;
+      margin: 50px auto;
       margin-top: 100px;
       font-size: 2rem;
 
@@ -29,11 +37,15 @@
 
 .button {
     font-size: 2rem;
-    border: 3px solid;
-    border-radius : 8px;
-    margin:10px;
+    border-radius: 8px;
+    margin: 10px;
     background-color: #ffffff;
     width: 500px;
+    text-align: center;
+    text-decoration: none;
+    color: #292929;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+
 }
 
  .button-second {
@@ -47,19 +59,23 @@
         display: inline-block;
         text-align: center;
           line-height: 30px;       /* 높이와 동일하게 설정하여 텍스트를 수직 중앙 정렬 */
-
+        text-decoration: none;  /* 밑줄 제거 */
+        color: black;           /* 글씨 검정 */
 
  }
 
 
 
 .menu-button {
+    white-space: nowrap;
+
     font-size: 3rem;
-    border: 3px solid;
     border-radius : 8px;
     margin: 30px;
     padding : 30px;
-        background-color: #ffffff;
+    background-color: #ffffff;
+    width: 400px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 
 }
 
@@ -78,8 +94,10 @@
 }
 
 .setting-div {
-    margin: 20px;
-}
+    margin: 10px;
+    display:flex;
+    align-items:center;
+    gap:10px;}
 
 .setting-header {
  position: relative;
@@ -105,17 +123,22 @@
 }
 
 .day-choose-button {
-    border : 2px solid;
-    border-radius :  10px;
+    border-radius: 10px;
     width: 200px;
-    padding : 10px;
+    padding: 10px;
     text-align: center;
-    background-color : #fff;
+    background-color: #fff;
+    text-decoration: none;  /* 밑줄 제거 */
+    color: black;           /* 글씨 검정 */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+
+}
+.day-choose-button:hover {
+    background: #d9e4f5;
+    transform: translateY(-2px);
 }
 
-.add-quiz {
-margin:100px;
-}
+
 
 #setting-quiz-add-button {
 height: 44px;
@@ -123,6 +146,10 @@ width:200px;
 font-size: 1.3rem;
 }
 
+.mainhome {
+margin-bottom: 20px;
+font-size:20px;
+}
 
 .add-word-container {
     display:flex;
@@ -134,8 +161,9 @@ font-size: 1.3rem;
 }
 
 #list {
-border: 1px solid;
-border-radius:10px;
+    border-radius:10px;
+    padding:10px;
+
 }
 
 /* 테이블 */
@@ -150,8 +178,6 @@ border-radius:10px;
     text-align: center;
   }
 
-  th {
-    background-color: #ebb41e;
-  }
+
 
 

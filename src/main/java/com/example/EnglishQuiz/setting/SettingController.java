@@ -1,17 +1,9 @@
 package com.example.EnglishQuiz.setting;
 
 import com.example.EnglishQuiz.quiz.DayType;
-import com.example.EnglishQuiz.quiz.Vocabulary;
-import com.example.EnglishQuiz.quiz.WordDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-
-import java.util.List;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequiredArgsConstructor
@@ -45,6 +37,11 @@ public class SettingController {
         return "wordList";
     }
 
+    @GetMapping("/delete/{id}")
+    public String deleteWord(@PathVariable("id") Integer vId, @RequestParam("day") String day) {
+        settingService.deleteWord(vId);
+        return "redirect:/setting/wordList?day=" + day;
+    }
 
 //    /**
 //     *

@@ -48,6 +48,10 @@ document.addEventListener("DOMContentLoaded", () => {
         button.addEventListener("click", () => {
             const n = button.getAttribute("data-count"); //사용자 정의로 준 지정된 버튼 값 (10문제? 20문제? 전체문제?)
 
+                    if(n==="-1") {
+                          quizPopup.style.display = "none";
+                          return;
+                    }
                     if(!selectedDay || !quizType) {
                         alert("날짜나 유형이 선택되지 않았습니다.");
                         return;

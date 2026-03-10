@@ -56,6 +56,7 @@ const quizEnd = document.getElementById("quizEnd");
             if(incorrectAnswerList.length ===0) {
                 const endComment = document.createElement("span");
                 endComment.innerText = "축하합니다. 다 맞히셨네요!";
+                endComment.classList.add("clear_comment");
                 quizEnd.appendChild(endComment);
             } else {
                 document.getElementById("incorrectWordForm").style.display = "block"; // 틀린 문제 목록 폼 보이기
@@ -102,6 +103,7 @@ const quizEnd = document.getElementById("quizEnd");
 
     function checkAnswer(e) {
         e.preventDefault();
+        const resultEl = document.getElementById("result"); // 이 줄 추가
 
         let userAnswer = document.getElementById("answerInput").value.trim(); //정답 input에 입력된 값을 가져옴
             userAnswer = userAnswer.replace(/[^\w\s가-힣]/g, ""); // 특수문자 제거
@@ -111,10 +113,13 @@ const quizEnd = document.getElementById("quizEnd");
         const acceptableAnswers = correctAnswer.split("/").map(a => a.trim()); //acceptableAnswers는 sting타입 배열임 , 정답에서 "/"기호 기준으로 앞뒤 모두 정답으로 인정
 
         if (acceptableAnswers.includes(userAnswer)) {
-
-            document.getElementById("result").innerText = "정답입니다!";
+            resultEl.innerText = "정답입니다!";
+            resultEl.classList.remove('wrong');
+            resultEl.classList.add('correct');
         } else {
-            document.getElementById("result").innerText = `오답입니다. 정답: ${correctAnswer}`;
+            resultEl.innerText = `오답입니다. 정답: ${correctAnswer}`;
+            resultEl.classList.remove('correct');
+            resultEl.classList.add('wrong');
             incorrectAnswerList.push(quizData[currentIndex][0]);
             }
         document.getElementById("answerInput").style.display = "none";
