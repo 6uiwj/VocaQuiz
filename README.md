@@ -89,11 +89,36 @@ cd VocaQuiz
 ---
 
 ## 🎮 주요 기능
+- 메인화면
+ <img width="982" height="858" alt="image" src="https://github.com/user-attachments/assets/394b16f8-94fa-4258-a27e-826c70b23df5" />
 
-- 테스트할 영단어 저장
-- Day별 영어 단어 퀴즈 출제
+
+- 테스트할 영단어 저장 - 날짜별 저장 가능
+  - '/' 문자를 이용하여 의미를 여러개 저장할 수 있습니다.
+<img width="1468" height="794" alt="image" src="https://github.com/user-attachments/assets/512931b3-ea13-4ffe-8c2f-1edd36ee53b8" />
+
+- 퀴즈풀기
+  - 영어 문제&한글 뜻 맞히기와 한글 문제&영단어 맞히기 두가지 퀴즈를 제공합니다.   
+<img width="1149" height="846" alt="image" src="https://github.com/user-attachments/assets/bcf67a6e-d8b2-4cea-94a7-4f120a3da277" />
+
+  - 저장한 영단어를 Day별로 공부할 수 있습니다.
+  <img width="1429" height="862" alt="image" src="https://github.com/user-attachments/assets/89946a8a-1005-473d-9ea1-4b8b2a723166" />
+  - 문제 수를 선택할 수 있습니다.
+   <img width="1383" height="851" alt="image" src="https://github.com/user-attachments/assets/f0ac9eec-e0ff-4818-aaf2-a93845a9c592" />
+
+
+   <br/>
+      <br/>
+
+  - 퀴즈를 시작하면 문제를 풀 수 있습니다.
+  - 문제를 틀릴 경우 하단에 정답을 보여줍니다.
+
+<img width="2728" height="1812" alt="제목 없는 다이어그램-페이지-3 (2)" src="https://github.com/user-attachments/assets/d8fda904-9a13-4b23-a752-2b58eced1826" />
+
+
 - 정답 확인 및 점수 집계
-- 퀴즈 종료 후 틀린 단어 목록 출력
+  - 퀴즈 종료 후 틀린 단어 목록 출력합니다.
+<img width="1048" height="830" alt="image" src="https://github.com/user-attachments/assets/1329a74c-df0c-4e79-9908-c7c3c043031e" />
 
 ---
 
@@ -101,7 +126,7 @@ cd VocaQuiz
 
 ## 🛠️ 향후 업데이트 예정 기능
 
-- 틀린 단어 즐겨찾기 -> 내 단어장에 등록
-- 시험지 생성(PDF)
+- 틀린 단어 즐겨찾기 기능 -> 틀린 단어 중 원하는 단어를  즐겨찾기 하여 '내 단어장'에 등록합니다.
+- 원하는 DAY의 단어 시험지를 생성하고 출력하는 기능을 제공합니다.(PDF)
 
 ---
