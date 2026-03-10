@@ -117,7 +117,7 @@ const quizEnd = document.getElementById("quizEnd");
             resultEl.classList.remove('wrong');
             resultEl.classList.add('correct');
         } else {
-            resultEl.innerText = `오답입니다. 정답: ${correctAnswer}`;
+            resultEl.innerText = `오답입니다. \n정답: \"${correctAnswer}\"`;
             resultEl.classList.remove('correct');
             resultEl.classList.add('wrong');
             incorrectAnswerList.push(quizData[currentIndex][0]);
