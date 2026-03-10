@@ -1,4 +1,4 @@
-package com.example.EnglishQuiz;
+package com.example.EnglishQuiz.setting;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -1,4 +1,4 @@
-package com.example.EnglishQuiz;
+package com.example.EnglishQuiz.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
